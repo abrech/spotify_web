@@ -13,9 +13,18 @@
         <div class="nav-div">
             <a href="/topsongs" class="header-nav-span" {% if "topsongs" in request.path %}style="color: antiquewhite;"{% endif %}>Top songs</a>
         </div>
+        {% if current_user.is_authenticated %}
         <div class="nav-div">
-            <a href="/config" class="header-nav-span" {% if "config" in request.path %}style="color: antiquewhite;"{% endif %}>Configuration</a>
+          <a href="{{ url_for('main.config') }}" class="header-nav-span" {% if "config" in request.path %}style="color: antiquewhite;"{% endif %}>Configuration</a>
         </div>
+        {% endif %}
+        {% if not current_user.is_authenticated %}
+        <div class="nav-div">
+          <a href="{{ url_for('auth.login') }}" class="header-nav-span" {% if "login" in request.path %}style="color: antiquewhite;"{% endif %}>
+              Login
+          </a>
+        </div>
+        {% endif %}
     </nav>
     {%block content%}{%endblock%}
     <script
