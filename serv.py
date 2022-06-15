@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/topsongs")
 def topsongs():
-    topsongs = []
+    top_songs = []
 
     return render_template("topsongs.html", top_songs=top_songs, enumerate=enumerate)
 
