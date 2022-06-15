@@ -16,4 +16,4 @@ def config():
 # Shut down the scheduler when exiting the app
 
 if __name__ == "__main__":
-    app.run(port=6500)
+    app.run(host="0.0.0.0", port=6500)
