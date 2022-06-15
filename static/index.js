@@ -1,5 +1,5 @@
 function test(){
-    fetch('spotify-data/test').then(data=>data.json()).then(data=>{console.log(data); console.log('huh')});
+    fetch('https://spotify-data/test').then(data=>data.json()).then(data=>{console.log(data); console.log('huh')});
     setTimeout(() => {
         test();
     }, 3000);
