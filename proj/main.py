@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, url_for, redirect
+import requests
 from . import db
 from flask_login import login_required, current_user
 
@@ -10,7 +11,9 @@ def index():
 
 @main.route("/topsongs")
 def topsongs():
-    top_songs = []
+    r = requests.get("api.abrech.de/get_top_uris/30")
+    content = r.json()
+    top_songs = content['uris']
 
     return render_template("topsongs.html", top_songs=top_songs, enumerate=enumerate)
 
