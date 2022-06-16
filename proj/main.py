@@ -11,9 +11,11 @@ def index():
 
 @main.route("/topsongs")
 def topsongs():
-    r = requests.get("api.abrech.de/get_top_uris/30")
-    content = r.json()
-    top_songs = content['uris']
+    # r = requests.get("https://api.abrech.de/get_top_uris/30")
+    # content = r.json()
+    # top_songs = content['uris']
+    # print(top_songs)
+    top_songs = []
 
     return render_template("topsongs.html", top_songs=top_songs, enumerate=enumerate)
 

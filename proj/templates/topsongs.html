@@ -9,17 +9,29 @@
 {%block content%}
 <div class="top-wrapper">
     <div style="height: 250px;">
-        <input type="text">
+        <input type="number" value="30" id="limit-input">
+        <input type="checkbox" id="embed-check" name="embed"
+             checked>
+      <label for="embed">Embed</label>
+      <label for="genres">Genre:</label>
+
+      <button onclick="get_top_songs();">Search</button>
+
+        <div class="multiselect">
+          <div class="selectBox" onclick="showCheckboxes()">
+            <select>
+              <option>Genres</option>
+            </select>
+            <div class="overSelect"></div>
+          </div>
+          <div id="checkboxes">
+          </div>
+        </div>
     </div>
 
     <div id="embed-container">
-        {%for i, entry in enumerate(top_songs)%}
-        <p class="top-p">
-            <span class="grid-place">{{i+1}}</span>
-            <iframe class="grid-song" style="border-radius:12px" src="https://open.spotify.com/embed/track/{{entry.split(':')[-1]}}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <span class="grid-timesplayed">{{entry[-1]}}</span>
-        </p>
-        {%endfor%}
+
+
     </div>
 </div>
 {%endblock%}
